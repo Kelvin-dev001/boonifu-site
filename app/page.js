@@ -1,9 +1,333 @@
-export default function Home() {
+// app/page.js
+import Link from "next/link";
+import Container from "./components/ui/Container";
+import Section from "./components/ui/Section";
+
+export const metadata = {
+  title: "Digital Marketing & SME Growth Solutions in Kenya",
+  description:
+    "Boonifu helps SMEs in Kenya get seen, get customers, and grow faster with digital marketing, social media management, AI chatbots, and automation.",
+};
+
+const WHATSAPP_URL = "https://wa.me/254759293030";
+
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-950 flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-white">
-        Boonifu Tailwind v3.4.4 is working 🚀
-      </h1>
+    <main>
+      {/* Hero Section */}
+      <Section className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 pb-16 pt-20 sm:pt-24 lg:pt-28">
+        <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-emerald-400">
+              Boonifu – Be Seen
+            </p>
+            <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              Digital marketing & AI-powered growth{" "}
+              <span className="text-emerald-400">for SMEs in Kenya</span>.
+            </h1>
+            <p className="mt-4 text-base text-slate-300 sm:text-lg">
+              We help small and medium businesses in Kenya get seen, get
+              customers, and grow revenue using modern social media marketing,
+              WhatsApp campaigns, AI chatbots, and automation.
+            </p>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href={WHATSAPP_URL}
+                className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-400"
+              >
+                Chat with us on WhatsApp
+              </a>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center rounded-full border border-slate-500/60 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-emerald-400 hover:text-emerald-300"
+              >
+                Explore services
+              </Link>
+            </div>
+
+            <p className="mt-4 text-xs text-slate-400">
+              Ideal for SMEs, startups, SACCOs, clinics, shops, real estate
+              agents, churches, schools, and local brands in Kenya.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 text-sm text-slate-200">
+            <h2 className="text-base font-semibold text-emerald-400">
+              What we do for your business
+            </h2>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li>• Run social media that actually brings customers.</li>
+              <li>• Set up WhatsApp broadcasts and bulk SMS for promotions.</li>
+              <li>• Build AI-powered chatbots that respond to customers 24/7.</li>
+              <li>• Design websites, posters, videos, and marketing content.</li>
+              <li>• Help you track results and grow consistently.</li>
+            </ul>
+            <p className="mt-4 text-xs text-slate-400">
+              No jargon. No overwhelm. Just clear marketing support for Kenyan
+              SMEs.
+            </p>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Core Services Quick Grid */}
+      <Section id="services-preview" className="bg-slate-950/60 border-y border-slate-800">
+        <Container>
+          <header className="max-w-2xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Visibility & growth services for{" "}
+              <span className="text-emerald-400">SMEs in Kenya</span>
+            </h2>
+            <p className="mt-3 text-sm text-slate-300 sm:text-base">
+              Pick what you need now, grow into more later. Every service is
+              designed for the Kenyan market and SME budgets.
+            </p>
+          </header>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {CORE_SERVICES.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200 transition hover:border-emerald-400/80 hover:bg-slate-900"
+              >
+                <h3 className="text-base font-semibold text-slate-50">
+                  {service.title}
+                </h3>
+                <p className="mt-2 text-xs text-slate-300">
+                  {service.description}
+                </p>
+                <span className="mt-3 text-xs font-semibold text-emerald-400">
+                  Learn more →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Why Boonifu */}
+      <Section id="why-boonifu">
+        <Container>
+          <header className="max-w-2xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Why SMEs in Kenya choose Boonifu
+            </h2>
+            <p className="mt-3 text-sm text-slate-300 sm:text-base">
+              We understand the realities of running a business in Kenya –
+              irregular cash flow, busy days, and the need for marketing that
+              actually converts into real customers.
+            </p>
+          </header>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {WHY_POINTS.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm"
+              >
+                <h3 className="text-sm font-semibold text-slate-50">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-xs text-slate-300">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Social Proof Placeholder */}
+      <Section id="social-proof" className="bg-slate-950/60 border-y border-slate-800">
+        <Container>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            Trusted by growing businesses in Kenya
+          </h2>
+          <p className="mt-3 text-sm text-slate-300 sm:text-base">
+            Coming soon: logos and testimonials from Kenyan SMEs in retail,
+            services, real estate, health, and more.
+          </p>
+        </Container>
+      </Section>
+
+      {/* Pricing Teaser – Social Media Management Plans */}
+      <Section id="pricing">
+        <Container>
+          <header className="max-w-2xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Social Media Management plans built for Kenyan SMEs
+            </h2>
+            <p className="mt-3 text-sm text-slate-300 sm:text-base">
+              Start small and scale up as your business grows. These packages
+              focus on visibility, engagement, and real customer leads.
+            </p>
+          </header>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {SOCIAL_MEDIA_PLANS.map((plan) => (
+              <div
+                key={plan.name}
+                className={`flex flex-col rounded-2xl border bg-slate-900/60 p-4 text-sm ${
+                  plan.highlight
+                    ? "border-emerald-500/80 shadow-lg shadow-emerald-500/30"
+                    : "border-slate-800"
+                }`}
+              >
+                <div className="mb-2 flex items-center justify-between gap-2">
+                  <h3 className="text-base font-semibold text-slate-50">
+                    {plan.name}
+                  </h3>
+                  {plan.highlight && (
+                    <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-xs font-semibold text-slate-950">
+                      Most popular
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-slate-300">{plan.description}</p>
+                <ul className="mt-3 space-y-1 text-xs text-slate-200">
+                  {plan.points.map((point) => (
+                    <li key={point}>• {point}</li>
+                  ))}
+                </ul>
+                <a
+                  href={WHATSAPP_URL}
+                  className="mt-4 inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 transition hover:bg-emerald-400"
+                >
+                  Chat about this plan on WhatsApp
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-4 text-xs text-slate-400">
+            Exact pricing is customized based on your business type, frequency
+            of posting, and whether you combine services like ads, WhatsApp
+            broadcasts, or content creation.
+          </p>
+        </Container>
+      </Section>
+
+      {/* WhatsApp CTA Banner */}
+      <Section className="bg-gradient-to-r from-emerald-500 via-emerald-400 to-sky-400">
+        <Container className="flex flex-col items-start justify-between gap-4 text-slate-950 sm:flex-row sm:items-center">
+          <div>
+            <h2 className="text-xl font-semibold sm:text-2xl">
+              Ready to get your business seen?
+            </h2>
+            <p className="mt-2 text-sm sm:text-base">
+              Tell us about your business on WhatsApp and we’ll suggest the
+              best services for your budget and goals.
+            </p>
+          </div>
+          <a
+            href={WHATSAPP_URL}
+            className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-emerald-300 shadow-lg shadow-slate-900/40 transition hover:bg-slate-900"
+          >
+            Chat with us on WhatsApp
+          </a>
+        </Container>
+      </Section>
+
+      {/* Footer placeholder */}
+      <footer className="border-t border-slate-800 bg-slate-950 py-6 text-xs text-slate-400">
+        <Container className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
+          <p>© {new Date().getFullYear()} Boonifu – Be Seen. All rights reserved.</p>
+          <p>Digital marketing & AI growth solutions for SMEs in Kenya.</p>
+        </Container>
+      </footer>
     </main>
   );
 }
+
+const CORE_SERVICES = [
+  {
+    slug: "social-media-management",
+    title: "Social Media Management",
+    description:
+      "Consistent, on-brand content and community management for Facebook, Instagram, TikTok, and more.",
+  },
+  {
+    slug: "ai-powered-sales-chatbot",
+    title: "AI-Powered Sales Chatbot",
+    description:
+      "24/7 AI chatbot for WhatsApp, Instagram, or your website to answer FAQs and capture leads automatically.",
+  },
+  {
+    slug: "whatsapp-broadcast-bulk-messaging",
+    title: "WhatsApp Broadcast (Bulk Messaging)",
+    description:
+      "Send targeted WhatsApp campaigns to your customer list for offers, updates, and reminders.",
+  },
+  {
+    slug: "bulk-sms-services",
+    title: "Bulk SMS Services",
+    description:
+      "Fast, reliable bulk SMS for promotions, reminders, and alerts across Kenya.",
+  },
+  {
+    slug: "marketing-posters-packs",
+    title: "Marketing Posters Packs",
+    description:
+      "Professionally designed posters tailored for your brand and campaigns.",
+  },
+  {
+    slug: "marketing-video-packs",
+    title: "Marketing Video Packs",
+    description:
+      "UGC, skits, promo videos, and AI-powered videos designed to grab attention online.",
+  },
+];
+
+const WHY_POINTS = [
+  {
+    title: "Built for Kenyan SMEs",
+    body: "We design offers, content, and campaigns with Kenyan customers, seasons, and platforms in mind.",
+  },
+  {
+    title: "Simple, clear communication",
+    body: "We avoid heavy jargon and give you clear, WhatsApp-friendly updates on what is happening.",
+  },
+  {
+    title: "Focused on real outcomes",
+    body: "The goal is not likes only – it’s visibility, inquiries, foot traffic, and revenue growth.",
+  },
+];
+
+const SOCIAL_MEDIA_PLANS = [
+  {
+    name: "Starter Plan",
+    description:
+      "Perfect for small businesses testing social media for visibility and credibility.",
+    points: [
+      "Poster design & posting for 1–2 main platforms",
+      "Basic scheduling and caption support",
+      "Limited analytics overview (top posts, reach)",
+      "Designed for entry-level SME budgets",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Growth Plan",
+    description:
+      "Our most popular plan for SMEs that want consistent customers from social media.",
+    points: [
+      "Posters + short video content (Reels/Shorts/TikTok)",
+      "Content calendar and weekly posting",
+      "Boosted posts / paid ads management (agreed budget)",
+      "Monthly performance summary with recommendations",
+    ],
+    highlight: true,
+  },
+  {
+    name: "Dominator Plan",
+    description:
+      "Premium content and strategy for brands that want to own their niche online.",
+    points: [
+      "Full content suite: posters, videos, stories, carousels",
+      "Advanced ads + audience targeting and retargeting",
+      "Deep analytics, competitor review & strategy sessions",
+      "Quarterly optimization roadmap for aggressive growth",
+    ],
+    highlight: false,
+  },
+];
