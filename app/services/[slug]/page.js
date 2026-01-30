@@ -6,11 +6,8 @@ import Section from "../../components/ui/Section";
 const WHATSAPP_URL = "https://wa.me/254759293030";
 
 /**
- * Central config for all services:
- * - title, slug, category
- * - SEO meta
- * - hook, benefits, useCases
- * - optional pricing for Social Media Management
+ * Central config for all services.
+ * KEYS MUST MATCH the slugs used in /services and /.
  */
 const SERVICES = {
   "social-media-management": {
@@ -27,7 +24,8 @@ const SERVICES = {
       "digital marketing services in Kenya",
       "social media marketing for small business Kenya",
     ],
-    hook: "Turn your Facebook, Instagram and TikTok into real customer channels – not just places where you post and hope.",
+    hook:
+      "Turn your Facebook, Instagram and TikTok into real customer channels – not just places where you post and hope.",
     audience:
       "Small and medium businesses in Kenya that want consistent content, engagement, and real inquiries from social media.",
     benefits: [
@@ -38,7 +36,7 @@ const SERVICES = {
     ],
     useCases: [
       "Retail shops, boutiques, salons, barbers, and spas promoting offers and new stock.",
-      "Clinics, pharmacies, and health centers building trust and answering common questions.",
+      "Clinics and health centers building trust and answering common questions.",
       "SACCOs, churches, schools, and NGOs sharing updates and events consistently.",
       "Real estate agents and property managers showcasing listings and client stories.",
     ],
@@ -106,7 +104,8 @@ const SERVICES = {
       "AI customer support Kenya",
       "sales chatbot for SMEs in Kenya",
     ],
-    hook: "Your business can answer customers 24/7 – even when you are offline – with an AI chatbot trained on your products and services.",
+    hook:
+      "Your business can answer customers 24/7 – even when you are offline – with an AI chatbot trained on your products and services.",
     audience:
       "SMEs in Kenya that receive many repeated questions on WhatsApp, Instagram DMs or website contact forms, and want automation.",
     benefits: [
@@ -137,7 +136,8 @@ const SERVICES = {
       "direct marketing Kenya",
       "SME marketing solutions Kenya",
     ],
-    hook: "Reach your customers where they already are – on WhatsApp – with well-planned, compliant broadcast campaigns.",
+    hook:
+      "Reach your customers where they already are – on WhatsApp – with well-planned, compliant broadcast campaigns.",
     audience:
       "Businesses and organizations in Kenya that have customer lists and want to promote new offers, events, and reminders.",
     benefits: [
@@ -168,7 +168,8 @@ const SERVICES = {
       "customer alerts Kenya",
       "SME communication tools Kenya",
     ],
-    hook: "Deliver your message to thousands of customers instantly with reliable bulk SMS campaigns across Kenya.",
+    hook:
+      "Deliver your message to thousands of customers instantly with reliable bulk SMS campaigns across Kenya.",
     audience:
       "SMEs, schools, SACCOs, clinics, and organizations that need high-delivery, high-visibility messaging.",
     benefits: [
@@ -198,7 +199,8 @@ const SERVICES = {
       "social media posters Kenya",
       "graphic design for SMEs Kenya",
     ],
-    hook: "Always have something good-looking and on-brand to post or print – without starting from scratch each time.",
+    hook:
+      "Always have something good-looking and on-brand to post or print – without starting from scratch each time.",
     audience:
       "Businesses that want professional visuals for campaigns, holidays, and regular promotions but don’t have in-house designers.",
     benefits: [
@@ -229,7 +231,8 @@ const SERVICES = {
       "AI marketing videos Kenya",
       "video content for SMEs Kenya",
     ],
-    hook: "Short, punchy videos that stop the scroll and move people to ask, visit, or buy.",
+    hook:
+      "Short, punchy videos that stop the scroll and move people to ask, visit, or buy.",
     audience:
       "SMEs that want more engaging video content for Reels, TikTok, Shorts, and ads – but lack in-house video teams.",
     benefits: [
@@ -259,7 +262,8 @@ const SERVICES = {
       "online store for small business Kenya",
       "sell online Kenya",
     ],
-    hook: "Sell online without needing a massive, complex e-commerce system – just what your Kenyan customers actually need.",
+    hook:
+      "Sell online without needing a massive, complex e-commerce system – just what your Kenyan customers actually need.",
     audience:
       "Businesses ready to accept orders online but overwhelmed by big, complex e-commerce platforms.",
     benefits: [
@@ -290,7 +294,8 @@ const SERVICES = {
       "business website development Kenya",
       "landing pages for SMEs Kenya",
     ],
-    hook: "Your website should be more than an online poster – it should be a 24/7 salesperson for your business.",
+    hook:
+      "Your website should be more than an online poster – it should be a 24/7 salesperson for your business.",
     audience:
       "SMEs, professionals, and organizations that need a modern, credible online presence that actually converts.",
     benefits: [
@@ -321,7 +326,8 @@ const SERVICES = {
       "rank on Google Kenya",
       "digital marketing services in Kenya",
     ],
-    hook: "Make it easy for both Google and AI tools like ChatGPT and Perplexity to understand and recommend your business.",
+    hook:
+      "Make it easy for both Google and AI tools like ChatGPT and Perplexity to understand and recommend your business.",
     audience:
       "Businesses that want to be found when customers search online or ask AI tools for recommendations in Kenya.",
     benefits: [
@@ -351,7 +357,8 @@ const SERVICES = {
       "animated marketing videos Kenya",
       "GIFs and animations for social media Kenya",
     ],
-    hook: "Make your content impossible to ignore with clean, modern animations that match your brand.",
+    hook:
+      "Make your content impossible to ignore with clean, modern animations that match your brand.",
     audience:
       "Brands that want to elevate their video ads, explainers, and social content with motion graphics.",
     benefits: [
@@ -382,7 +389,8 @@ const SERVICES = {
       "business cards for SMEs Kenya",
       "company profile Kenya",
     ],
-    hook: "Give customers and partners something professional to hold, share, and remember – both online and offline.",
+    hook:
+      "Give customers and partners something professional to hold, share, and remember – both online and offline.",
     audience:
       "SMEs and organizations that want credible, well-designed brand documents and print materials.",
     benefits: [
@@ -416,7 +424,8 @@ export async function generateMetadata({ params }) {
     description: service.seoDescription,
     keywords: service.keywords,
     alternates: {
-      canonical: `https://YOUR-PRODUCTION-DOMAIN.com/services/${service.slug}`,
+      // TODO: replace this with your real production domain
+      canonical: `https://https://boonifu-site.vercel.app/services/${service.slug}`,
     },
   };
 }
@@ -481,8 +490,7 @@ export default function ServiceDetailPage({ params }) {
             {category}
           </p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-            {name} for{" "}
-            <span className="text-emerald-400">SMEs in Kenya</span>
+            {name} for <span className="text-emerald-400">SMEs in Kenya</span>
           </h1>
           {hook && (
             <p className="mt-4 text-sm text-slate-300 sm:text-base">{hook}</p>
