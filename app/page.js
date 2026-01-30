@@ -1,7 +1,18 @@
+"use client";
+
 // app/page.js
 import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  Megaphone,
+  Bot,
+  Smartphone,
+  Sparkles,
+  ShoppingBag,
+} from "lucide-react";
 import Container from "./components/ui/Container";
 import Section from "./components/ui/Section";
+import { fadeInUp, scaleIn } from "./components/ui/motionPresets";
 
 export const metadata = {
   title: "Digital Marketing & SME Growth Solutions in Kenya",
@@ -17,12 +28,17 @@ export default function HomePage() {
       {/* Hero Section */}
       <Section className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 pb-16 pt-20 sm:pt-24 lg:pt-28">
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <p className="text-sm font-semibold uppercase tracking-wide text-emerald-400">
               Boonifu – Be Seen
             </p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              Digital marketing & AI-powered growth{" "}
+              Digital marketing & AI‑powered growth{" "}
               <span className="text-emerald-400">for SMEs in Kenya</span>.
             </h1>
             <p className="mt-4 text-base text-slate-300 sm:text-lg">
@@ -34,7 +50,7 @@ export default function HomePage() {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href={WHATSAPP_URL}
-                className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-400"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 transition hover:-translate-y-0.5 hover:bg-emerald-400"
               >
                 Chat with us on WhatsApp
               </a>
@@ -50,16 +66,24 @@ export default function HomePage() {
               Ideal for SMEs, startups, SACCOs, clinics, shops, real estate
               agents, churches, schools, and local brands in Kenya.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 text-sm text-slate-200">
+          <motion.div
+            className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5 text-sm text-slate-200"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+          >
             <h2 className="text-base font-semibold text-emerald-400">
               What we do for your business
             </h2>
             <ul className="mt-4 space-y-2 text-sm">
               <li>• Run social media that actually brings customers.</li>
               <li>• Set up WhatsApp broadcasts and bulk SMS for promotions.</li>
-              <li>• Build AI-powered chatbots that respond to customers 24/7.</li>
+              <li>
+                • Build AI‑powered chatbots that respond to customers 24/7.
+              </li>
               <li>• Design websites, posters, videos, and marketing content.</li>
               <li>• Help you track results and grow consistently.</li>
             </ul>
@@ -67,12 +91,15 @@ export default function HomePage() {
               No jargon. No overwhelm. Just clear marketing support for Kenyan
               SMEs.
             </p>
-          </div>
+          </motion.div>
         </Container>
       </Section>
 
       {/* Core Services Quick Grid */}
-      <Section id="services-preview" className="bg-slate-950/60 border-y border-slate-800">
+      <Section
+        id="services-preview"
+        className="bg-slate-950/60 border-y border-slate-800"
+      >
         <Container>
           <header className="max-w-2xl">
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -86,23 +113,41 @@ export default function HomePage() {
           </header>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {CORE_SERVICES.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200 transition hover:border-emerald-400/80 hover:bg-slate-900"
-              >
-                <h3 className="text-base font-semibold text-slate-50">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-xs text-slate-300">
-                  {service.description}
-                </p>
-                <span className="mt-3 text-xs font-semibold text-emerald-400">
-                  Learn more →
-                </span>
-              </Link>
-            ))}
+            {CORE_SERVICES.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.slug}
+                  variants={scaleIn}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.35, delay: 0.05 * index }}
+                >
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200 shadow-sm shadow-slate-950/40 transition hover:-translate-y-1 hover:border-emerald-400/80 hover:bg-slate-900"
+                  >
+                    <div className="flex items-center gap-2">
+                      {Icon && (
+                        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400">
+                          <Icon className="h-4 w-4" />
+                        </span>
+                      )}
+                      <h3 className="text-base font-semibold text-slate-50">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <p className="mt-2 text-xs text-slate-300">
+                      {service.description}
+                    </p>
+                    <span className="mt-3 text-xs font-semibold text-emerald-400">
+                      Learn more →
+                    </span>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </Container>
       </Section>
@@ -122,31 +167,47 @@ export default function HomePage() {
           </header>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {WHY_POINTS.map((item) => (
-              <div
+            {WHY_POINTS.map((item, index) => (
+              <motion.div
                 key={item.title}
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.35, delay: 0.05 * index }}
                 className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm"
               >
                 <h3 className="text-sm font-semibold text-slate-50">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-xs text-slate-300">{item.body}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </Container>
       </Section>
 
       {/* Social Proof Placeholder */}
-      <Section id="social-proof" className="bg-slate-950/60 border-y border-slate-800">
+      <Section
+        id="social-proof"
+        className="bg-slate-950/60 border-y border-slate-800"
+      >
         <Container>
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Trusted by growing businesses in Kenya
-          </h2>
-          <p className="mt-3 text-sm text-slate-300 sm:text-base">
-            Coming soon: logos and testimonials from Kenyan SMEs in retail,
-            services, real estate, health, and more.
-          </p>
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.4 }}
+          >
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Trusted by growing businesses in Kenya
+            </h2>
+            <p className="mt-3 text-sm text-slate-300 sm:text-base">
+              Coming soon: logos and testimonials from Kenyan SMEs in retail,
+              services, real estate, health, and more.
+            </p>
+          </motion.div>
         </Container>
       </Section>
 
@@ -164,9 +225,14 @@ export default function HomePage() {
           </header>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {SOCIAL_MEDIA_PLANS.map((plan) => (
-              <div
+            {SOCIAL_MEDIA_PLANS.map((plan, index) => (
+              <motion.div
                 key={plan.name}
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.35, delay: 0.05 * index }}
                 className={`flex flex-col rounded-2xl border bg-slate-900/60 p-4 text-sm ${
                   plan.highlight
                     ? "border-emerald-500/80 shadow-lg shadow-emerald-500/30"
@@ -195,7 +261,7 @@ export default function HomePage() {
                 >
                   Chat about this plan on WhatsApp
                 </a>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -209,26 +275,34 @@ export default function HomePage() {
 
       {/* WhatsApp CTA Banner */}
       <Section className="bg-gradient-to-r from-emerald-500 via-emerald-400 to-sky-400">
-        <Container className="flex flex-col items-start justify-between gap-4 text-slate-950 sm:flex-row sm:items-center">
-          <div>
-            <h2 className="text-xl font-semibold sm:text-2xl">
-              Ready to get your business seen?
-            </h2>
-            <p className="mt-2 text-sm sm:text-base">
-              Tell us about your business on WhatsApp and we’ll suggest the
-              best services for your budget and goals.
-            </p>
-          </div>
-          <a
-            href={WHATSAPP_URL}
-            className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-emerald-300 shadow-lg shadow-slate-900/40 transition hover:bg-slate-900"
-          >
-            Chat with us on WhatsApp
-          </a>
-        </Container>
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45 }}
+        >
+          <Container className="flex flex-col items-start justify-between gap-4 text-slate-950 sm:flex-row sm:items-center">
+            <div>
+              <h2 className="text-xl font-semibold sm:text-2xl">
+                Ready to get your business seen?
+              </h2>
+              <p className="mt-2 text-sm sm:text-base">
+                Tell us about your business on WhatsApp and we’ll suggest the
+                best services for your budget and goals.
+              </p>
+            </div>
+            <a
+              href={WHATSAPP_URL}
+              className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-emerald-300 shadow-lg shadow-slate-900/40 transition hover:bg-slate-900"
+            >
+              Chat with us on WhatsApp
+            </a>
+          </Container>
+        </motion.div>
       </Section>
 
-      {/* Footer placeholder */}
+      {/* Footer */}
       <footer className="border-t border-slate-800 bg-slate-950 py-6 text-xs text-slate-400">
         <Container className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} Boonifu – Be Seen. All rights reserved.</p>
@@ -245,36 +319,42 @@ const CORE_SERVICES = [
     title: "Social Media Management",
     description:
       "Consistent, on-brand content and community management for Facebook, Instagram, TikTok, and more.",
+    icon: Megaphone,
   },
   {
     slug: "ai-powered-sales-chatbot",
     title: "AI-Powered Sales Chatbot",
     description:
       "24/7 AI chatbot for WhatsApp, Instagram, or your website to answer FAQs and capture leads automatically.",
+    icon: Bot,
   },
   {
     slug: "whatsapp-broadcast-bulk-messaging",
     title: "WhatsApp Broadcast (Bulk Messaging)",
     description:
       "Send targeted WhatsApp campaigns to your customer list for offers, updates, and reminders.",
+    icon: Smartphone,
   },
   {
     slug: "bulk-sms-services",
     title: "Bulk SMS Services",
     description:
       "Fast, reliable bulk SMS for promotions, reminders, and alerts across Kenya.",
+    icon: Smartphone,
   },
   {
     slug: "marketing-posters-packs",
     title: "Marketing Posters Packs",
     description:
       "Professionally designed posters tailored for your brand and campaigns.",
+    icon: Sparkles,
   },
   {
     slug: "marketing-video-packs",
     title: "Marketing Video Packs",
     description:
       "UGC, skits, promo videos, and AI-powered videos designed to grab attention online.",
+    icon: ShoppingBag,
   },
 ];
 

@@ -1,6 +1,10 @@
 // app/layout.js
+import "./globals.css";
+import Header from "./components/layout/Header";
+import WhatsAppFloatingButton from "./components/layout/WhatsAppFloatingButton";
+
 export const metadata = {
-  metadataBase: new URL("https://YOUR-PRODUCTION-DOMAIN.com"), // TODO: replace with your real domain or Vercel URL
+  metadataBase: new URL("https://boonifu-site.vercel.app"), // update if you have custom domain
   title: {
     default: "Boonifu – Be Seen | Digital Marketing & Growth Solutions in Kenya",
     template: "%s | Boonifu – Be Seen",
@@ -13,29 +17,28 @@ export const metadata = {
     "AI chatbot for businesses Kenya",
     "WhatsApp marketing Kenya",
     "social media management Kenya",
-    "Boonifu",
   ],
   openGraph: {
     title: "Boonifu – Be Seen | Digital Marketing & Growth Solutions in Kenya",
     description:
       "Visibility and growth solutions for SMEs in Kenya. Get seen, get customers, and grow faster with digital marketing, AI, and automation.",
-    url: "https://YOUR-PRODUCTION-DOMAIN.com", // TODO: replace
+    url: "https://boonifu-site.vercel.app",
     siteName: "Boonifu – Be Seen",
     locale: "en_KE",
     type: "website",
   },
   alternates: {
-    canonical: "https://YOUR-PRODUCTION-DOMAIN.com",
+    canonical: "https://boonifu-site.vercel.app",
   },
 };
-
-import "./globals.css";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-slate-950 text-slate-50 antialiased">
+        <Header />
         {children}
+        <WhatsAppFloatingButton />
       </body>
     </html>
   );
