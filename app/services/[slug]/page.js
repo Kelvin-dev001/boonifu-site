@@ -16,6 +16,7 @@ const SERVICES = {
 };
 
 export function generateStaticParams() {
+  // Hard-code just one slug for now
   return [{ slug: "social-media-management" }];
 }
 
