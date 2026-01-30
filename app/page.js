@@ -14,12 +14,6 @@ import Container from "./components/ui/Container";
 import Section from "./components/ui/Section";
 import { fadeInUp, scaleIn } from "./components/ui/motionPresets";
 
-export const metadata = {
-  title: "Digital Marketing & SME Growth Solutions in Kenya",
-  description:
-    "Boonifu helps SMEs in Kenya get seen, get customers, and grow faster with digital marketing, social media management, AI chatbots, and automation.",
-};
-
 const WHATSAPP_URL = "https://wa.me/254759293030";
 
 export default function HomePage() {
@@ -305,7 +299,9 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="border-t border-slate-800 bg-slate-950 py-6 text-xs text-slate-400">
         <Container className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Boonifu – Be Seen. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Boonifu – Be Seen. All rights reserved.
+          </p>
           <p>Digital marketing & AI growth solutions for SMEs in Kenya.</p>
         </Container>
       </footer>
