@@ -1,7 +1,4 @@
-"use client";
-
 // app/services/page.js
-import { motion } from "framer-motion";
 import {
   Megaphone,
   Bot,
@@ -16,7 +13,6 @@ import {
 import Link from "next/link";
 import Container from "../components/ui/Container";
 import Section from "../components/ui/Section";
-import { fadeInUp, scaleIn } from "../components/ui/motionPresets";
 
 export const metadata = {
   title: "Services for SMEs in Kenya | Digital Marketing, AI & Automation",
@@ -31,13 +27,7 @@ export default function ServicesPage() {
     <main>
       <Section className="bg-slate-950 pb-10 pt-20 sm:pt-24">
         <Container>
-          <motion.header
-            className="max-w-3xl"
-            variants={fadeInUp}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.5 }}
-          >
+          <header className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-emerald-400">
               Our Services
             </p>
@@ -56,42 +46,34 @@ export default function ServicesPage() {
             >
               Chat with us on WhatsApp
             </a>
-          </motion.header>
+          </header>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {ALL_SERVICES.map((service, index) => {
+            {ALL_SERVICES.map((service) => {
               const Icon = service.icon;
               return (
-                <motion.div
+                <Link
                   key={service.slug}
-                  variants={scaleIn}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.35, delay: 0.04 * index }}
+                  href={`/services/${service.slug}`}
+                  className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200 shadow-sm shadow-slate-950/40 transition hover:-translate-y-1 hover:border-emerald-400/80 hover:bg-slate-900"
                 >
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200 shadow-sm shadow-slate-950/40 transition hover:-translate-y-1 hover:border-emerald-400/80 hover:bg-slate-900"
-                  >
-                    <div className="flex items-center gap-2">
-                      {Icon && (
-                        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400">
-                          <Icon className="h-4 w-4" />
-                        </span>
-                      )}
-                      <h2 className="text-base font-semibold text-slate-50">
-                        {service.title}
-                      </h2>
-                    </div>
-                    <p className="mt-2 text-xs text-slate-300">
-                      {service.description}
-                    </p>
-                    <p className="mt-3 text-xs font-semibold text-emerald-400">
-                      View details →
-                    </p>
-                  </Link>
-                </motion.div>
+                  <div className="flex items-center gap-2">
+                    {Icon && (
+                      <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                    )}
+                    <h2 className="text-base font-semibold text-slate-50">
+                      {service.title}
+                    </h2>
+                  </div>
+                  <p className="mt-2 text-xs text-slate-300">
+                    {service.description}
+                  </p>
+                  <p className="mt-3 text-xs font-semibold text-emerald-400">
+                    View details →
+                  </p>
+                </Link>
               );
             })}
           </div>
