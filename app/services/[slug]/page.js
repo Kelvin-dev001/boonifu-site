@@ -635,3 +635,5 @@ export default function ServiceDetailPage({ params }) {
     </main>
   );
 }
+console.log("Available service keys:", Object.keys(SERVICES));
+console.log("Requested slug:", params.slug);
