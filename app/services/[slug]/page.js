@@ -5,6 +5,7 @@ import Section from "../../components/ui/Section";
 
 const WHATSAPP_URL = "https://wa.me/254759293030";
 
+// MINIMAL services config with ONE service
 const SERVICES = {
   "social-media-management": {
     slug: "social-media-management",
@@ -40,6 +41,13 @@ const SERVICES = {
   },
 };
 
+// Log at module load time
+console.log("Service keys at build time:", Object.keys(SERVICES));
+console.log(
+  "Has 'social-media-management' key:",
+  "social-media-management" in SERVICES
+);
+
 export function generateStaticParams() {
   return Object.values(SERVICES).map((service) => ({
     slug: service.slug,
@@ -49,12 +57,17 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const service = SERVICES[params.slug];
 
+  console.log("generateMetadata - requested slug:", params.slug);
+
   if (!service) {
+    console.log("generateMetadata - service NOT found for slug:", params.slug);
     return {
       title: "Service Not Found | Boonifu – Be Seen",
       description: "The service you are looking for does not exist or has moved.",
     };
   }
+
+  console.log("generateMetadata - service FOUND for slug:", params.slug);
 
   return {
     title: service.seoTitle,
@@ -63,9 +76,26 @@ export async function generateMetadata({ params }) {
 }
 
 export default function ServiceDetailPage({ params }) {
+  console.log("Page render - Available service keys:", Object.keys(SERVICES));
+  console.log("Page render - Requested slug:", params.slug);
+  console.log(
+    "Page render - Has 'social-media-management':",
+    "social-media-management" in SERVICES
+  );
+  console.log(
+    "Page render - Direct lookup social-media-management:",
+    SERVICES["social-media-management"] ? "FOUND" : "NOT FOUND"
+  );
+
   const service = SERVICES[params.slug];
 
   if (!service) {
+    console.log(
+      "Page render - Service NOT found for slug:",
+      params.slug,
+      "Returning 404 UI"
+    );
+
     return (
       <main>
         <Section>
@@ -93,13 +123,24 @@ export default function ServiceDetailPage({ params }) {
     );
   }
 
-  const { name, category, hook, audience, benefits, useCases, pricingTitle, plans } =
-    service;
+  console.log("Page render - Service FOUND for slug:", params.slug);
+
+  const {
+    name,
+    category,
+    hook,
+    audience,
+    benefits,
+    useCases,
+    pricingTitle,
+    plans,
+  } = service;
 
   const hasPricing = Array.isArray(plans) && plans.length > 0;
 
   return (
     <main>
+      {/* Hero / Intro */}
       <Section className="bg-slate-950 pb-10 pt-20 sm:pt-24">
         <Container>
           <p className="text-xs font-semibold uppercase tracking-wide text-emerald-400">
@@ -131,6 +172,7 @@ export default function ServiceDetailPage({ params }) {
         </Container>
       </Section>
 
+      {/* Benefits & Use Cases */}
       <Section>
         <Container className="grid gap-10 lg:grid-cols-2">
           <div>
@@ -160,6 +202,7 @@ export default function ServiceDetailPage({ params }) {
         </Container>
       </Section>
 
+      {/* Pricing (only for Social Media Management in this minimal version) */}
       {hasPricing && (
         <Section className="bg-slate-950/60 border-y border-slate-800">
           <Container>
