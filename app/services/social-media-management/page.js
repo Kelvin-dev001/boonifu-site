@@ -81,7 +81,7 @@ export default function SocialMediaManagementPage() {
           </h1>
           <p className="mt-4 text-sm text-slate-300 sm:text-base">
             Turn your Facebook, Instagram and TikTok into real customer
-            channels – not just places where you post and hope. We manage your
+            channels; not just places where you post and hope. We manage your
             content, posting, ad boosting and reporting so you can focus on
             running the business.
           </p>
@@ -115,12 +115,12 @@ export default function SocialMediaManagementPage() {
               Benefits for your business
             </h2>
             <p className="mt-3 text-sm text-slate-300">
-              We focus on outcomes: visibility, inquiries, and revenue growth –
+              We focus on outcomes: visibility, inquiries, and revenue growth; 
               not just random posting.
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-200">
               <li>
-                • You look active, trusted, and professional online – even on
+                • You look active, trusted, and professional online; even on
                 your busiest days.
               </li>
               <li>
@@ -233,7 +233,7 @@ export default function SocialMediaManagementPage() {
             </h2>
             <p className="mt-2 text-sm sm:text-base">
               Send us a quick WhatsApp message about your business and goals.
-              We’ll reply with a simple recommendation – no pressure.
+              We’ll reply with a simple recommendation.
             </p>
           </div>
           <a

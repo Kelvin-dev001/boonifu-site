@@ -181,7 +181,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Social Proof Placeholder */}
+      {/* Social Proof / Testimonials */}
       <Section
         id="social-proof"
         className="bg-slate-950/60 border-y border-slate-800"
@@ -193,15 +193,233 @@ export default function HomePage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4 }}
+            className="space-y-6"
           >
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
               Trusted by growing businesses in Kenya
             </h2>
-            <p className="mt-3 text-sm text-slate-300 sm:text-base">
-              Coming soon: logos and testimonials from Kenyan SMEs in retail,
-              services, real estate, health, and more.
+            <p className="text-sm text-slate-300 sm:text-base">
+              We partner with SMEs across different industries to modernize
+              their visibility and marketing – from websites and e‑commerce to
+              social media, AI chatbots, and paid media.
             </p>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-xs text-slate-300">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-emerald-400">
+                  Website & Social Media
+                </p>
+                <p className="mt-2 italic">
+                  &ldquo;Boonifu helped us move from a basic online presence to
+                  a proper website and active social media. Our brand now looks
+                  professional and we have a clear structure for our content and
+                  campaigns.&rdquo;
+                </p>
+                <p className="mt-3 font-semibold text-slate-100">
+                  Nebsam Digital Solutions (K) Ltd
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  Website design, social media management & media buying
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-xs text-slate-300">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-emerald-400">
+                  E‑commerce & Social Media
+                </p>
+                <p className="mt-2 italic">
+                  &ldquo;With Boonifu we set up an e‑commerce presence that
+                  matches how our customers actually buy, and we now have
+                  consistent social media that supports our online
+                  sales.&rdquo;
+                </p>
+                <p className="mt-3 font-semibold text-slate-100">
+                  snaaap connections
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  E‑commerce solutions & social media management
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-xs text-slate-300">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-emerald-400">
+                  SMEs Across Kenya
+                </p>
+                <p className="mt-2 italic">
+                  &ldquo;From clinics and shops to SACCOs and real estate
+                  agents, Boonifu gives us clarity on what to post, how to run
+                  campaigns, and how to turn visibility into real
+                  inquiries.&rdquo;
+                </p>
+                <p className="mt-3 font-semibold text-slate-100">
+                  Selected SME clients
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  Social media, WhatsApp campaigns & design support
+                </p>
+              </div>
+            </div>
           </motion.div>
+        </Container>
+      </Section>
+
+      {/* Guidance – Where to Start */}
+      <Section id="where-to-start">
+        <Container>
+          <header className="max-w-2xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Not sure where to start?
+            </h2>
+            <p className="mt-3 text-sm text-slate-300 sm:text-base">
+              Here are common starting points for SMEs we work with. Pick the
+              one that sounds most like you – or just send us a WhatsApp
+              message and we’ll guide you.
+            </p>
+          </header>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-xs text-slate-200">
+              <h3 className="text-sm font-semibold text-slate-50">
+                &ldquo;We need to look professional online&rdquo;
+              </h3>
+              <p className="mt-2">
+                Start with a{" "}
+                <span className="font-semibold">
+                  Website + Business Profile & Posters pack
+                </span>{" "}
+                so people can trust you and clearly understand what you do.
+              </p>
+              <Link
+                href="/services/website-design-development"
+                className="mt-3 inline-block text-[11px] font-semibold text-emerald-400 hover:underline"
+              >
+                View website design →
+              </Link>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-xs text-slate-200">
+              <h3 className="text-sm font-semibold text-slate-50">
+                &ldquo;We want more inquiries and walk‑ins&rdquo;
+              </h3>
+              <p className="mt-2">
+                Start with{" "}
+                <span className="font-semibold">
+                  Social Media Management + WhatsApp Broadcast
+                </span>{" "}
+                to increase visibility, promotions, and customer touchpoints.
+              </p>
+              <Link
+                href="/services/social-media-management"
+                className="mt-3 inline-block text-[11px] font-semibold text-emerald-400 hover:underline"
+              >
+                View social media plans →
+              </Link>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-xs text-slate-200">
+              <h3 className="text-sm font-semibold text-slate-50">
+                &ldquo;We get many chats; we can’t reply to all&rdquo;
+              </h3>
+              <p className="mt-2">
+                Start with an{" "}
+                <span className="font-semibold">AI‑powered Sales Chatbot</span>{" "}
+                on WhatsApp or your website to answer FAQs and capture leads
+                24/7.
+              </p>
+              <Link
+                href="/services/ai-powered-sales-chatbot"
+                className="mt-3 inline-block text-[11px] font-semibold text-emerald-400 hover:underline"
+              >
+                View chatbot service →
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Starter Offers / Engagement Packs */}
+      <Section
+        id="starter-offers"
+        className="bg-slate-950/60 border-y border-slate-800"
+      >
+        <Container>
+          <header className="max-w-2xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Simple starter offers to work with Boonifu
+            </h2>
+            <p className="mt-3 text-sm text-slate-300 sm:text-base">
+              Instead of random one‑off jobs, we recommend focused sprints that
+              give your business a clear boost in 4–12 weeks.
+            </p>
+          </header>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <motion.div
+              variants={scaleIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.35, delay: 0.05 }}
+              className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm"
+            >
+              <h3 className="text-base font-semibold text-slate-50">
+                Boonifu Launch Pack (4–6 weeks)
+              </h3>
+              <p className="mt-2 text-xs text-slate-300">
+                For new or rebranding businesses that need to look professional
+                online – fast.
+              </p>
+              <ul className="mt-3 space-y-1 text-xs text-slate-200">
+                <li>• Modern website (focused set of key pages).</li>
+                <li>• Business profile PDF or deck to send to prospects.</li>
+                <li>• Launch poster pack for social media & WhatsApp.</li>
+                <li>• Basic launch plan for your first 2–4 weeks online.</li>
+              </ul>
+              <p className="mt-3 text-[11px] text-slate-400">
+                Ideal if you’re just starting out, rebranding, or preparing to
+                pitch to more serious clients.
+              </p>
+              <a
+                href={WHATSAPP_URL}
+                className="mt-4 inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 transition hover:bg-emerald-400"
+              >
+                Ask about the Launch Pack on WhatsApp
+              </a>
+            </motion.div>
+
+            <motion.div
+              variants={scaleIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.35, delay: 0.1 }}
+              className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-sm"
+            >
+              <h3 className="text-base font-semibold text-slate-50">
+                Growth Sprint (90 days)
+              </h3>
+              <p className="mt-2 text-xs text-slate-300">
+                For SMEs that already have customers and want more consistent
+                inquiries and sales.
+              </p>
+              <ul className="mt-3 space-y-1 text-xs text-slate-200">
+                <li>• Social media management with weekly content.</li>
+                <li>• WhatsApp broadcast or AI sales chatbot setup.</li>
+                <li>• Monthly performance review & strategy adjustments.</li>
+                <li>• Clear, action‑oriented reporting (no jargon).</li>
+              </ul>
+              <p className="mt-3 text-[11px] text-slate-400">
+                Ideal if you feel &ldquo;stuck&rdquo; with your current online
+                presence and want a focused 90‑day push.
+              </p>
+              <a
+                href={WHATSAPP_URL}
+                className="mt-4 inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 transition hover:bg-emerald-400"
+              >
+                Ask about the Growth Sprint on WhatsApp
+              </a>
+            </motion.div>
+          </div>
         </Container>
       </Section>
 
@@ -264,6 +482,69 @@ export default function HomePage() {
             of posting, and whether you combine services like ads, WhatsApp
             broadcasts, or content creation.
           </p>
+        </Container>
+      </Section>
+
+      {/* FAQ */}
+      <Section id="faq">
+        <Container>
+          <header className="max-w-2xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Frequently asked questions
+            </h2>
+            <p className="mt-3 text-sm text-slate-300 sm:text-base">
+              A few quick answers to common questions SMEs ask us before we
+              start working together.
+            </p>
+          </header>
+
+          <div className="mt-6 space-y-4 text-xs text-slate-200 sm:text-sm">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+              <h3 className="text-sm font-semibold text-slate-50">
+                How long until we see results?
+              </h3>
+              <p className="mt-2 text-slate-300">
+                It depends on the service and your current stage, but most SMEs
+                start seeing clearer visibility and engagement in the first
+                4–8 weeks. Direct inquiries and sales growth usually follow as
+                we stay consistent and optimize your content and campaigns.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+              <h3 className="text-sm font-semibold text-slate-50">
+                What do you need from us to get started?
+              </h3>
+              <p className="mt-2 text-slate-300">
+                A WhatsApp contact person, access to your existing pages or
+                accounts, and basic information about your offers, seasons, and
+                priorities. We guide you step‑by‑step and keep the process as
+                light as possible on your side.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+              <h3 className="text-sm font-semibold text-slate-50">
+                Can we start small and upgrade later?
+              </h3>
+              <p className="mt-2 text-slate-300">
+                Yes. Many clients start with one or two services (for example,
+                social media or website) and then add WhatsApp campaigns,
+                AI chatbots, or more content once they see the impact.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+              <h3 className="text-sm font-semibold text-slate-50">
+                Do you lock us into long contracts?
+              </h3>
+              <p className="mt-2 text-slate-300">
+                No. We usually recommend a 3–6 month commitment for best
+                results, but we keep agreements simple and transparent. You keep
+                the assets we create for you (content, website, designs).
+              </p>
+            </div>
+          </div>
         </Container>
       </Section>
 

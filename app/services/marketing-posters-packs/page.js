@@ -32,7 +32,7 @@ export default function MarketingPostersPacksPage() {
             <span className="text-emerald-400">Kenyan SMEs</span>
           </h1>
           <p className="mt-4 text-sm text-slate-300 sm:text-base">
-            Always have something clean and on-brand to post or print – without
+            Always have something clean and on-brand to post or print; without
             starting from scratch each time. We design poster packs tailored to
             your business, campaigns, and seasons.
           </p>

@@ -33,8 +33,8 @@ export default function AiPoweredSalesChatbotPage() {
             <span className="text-emerald-400">SMEs in Kenya</span>
           </h1>
           <p className="mt-4 text-sm text-slate-300 sm:text-base">
-            Your business can answer customers 24/7 – even when you are offline
-            – with an AI chatbot trained on your products, services, and
+            Your business can answer customers 24/7; even when you are offline,
+         with an AI chatbot trained on your products, services, and
             frequently asked questions.
           </p>
           <p className="mt-3 text-xs text-slate-400 sm:text-sm">

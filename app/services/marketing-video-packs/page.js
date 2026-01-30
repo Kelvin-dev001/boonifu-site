@@ -38,7 +38,7 @@ export default function MarketingVideoPacksPage() {
           </p>
           <p className="mt-3 text-xs text-slate-400 sm:text-sm">
             Designed for platforms like TikTok, Instagram Reels, YouTube
-            Shorts, and Meta ads – tuned for Kenyan audiences and buying
+            Shorts, and Meta ads; tuned for Kenyan audiences and buying
             behavior.
           </p>
 
