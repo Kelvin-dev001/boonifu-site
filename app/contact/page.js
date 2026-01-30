@@ -8,9 +8,7 @@ import Section from "../components/ui/Section";
 const WHATSAPP_URL = "https://wa.me/254759293030";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "submitted">(
-    "idle"
-  );
+  const [status, setStatus] = useState("idle"); // "idle" | "submitting" | "submitted"
 
   function handleSubmit(e) {
     e.preventDefault();
